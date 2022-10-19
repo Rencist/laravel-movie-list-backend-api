@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\MovieController;
 
 Route::get('hello', function () {
     return response()->json();
@@ -9,6 +10,7 @@ Route::get('hello', function () {
 
 Route::post('/create_user', [UserController::class, 'createUser']);
 Route::post('/login_user', [UserController::class, 'loginUser']);
+Route::get('/get_movies', [MovieController::class, 'movies']);
 
 Route::middleware(['iam'])->group(
     function () {
