@@ -18,8 +18,7 @@ class MovieService
         // dd($start_form);
         $query = DB::select(
             "
-            select
-                *
+            select id, poster_link, series_title, overview
             from movie
             order by id desc
             "
@@ -32,20 +31,7 @@ class MovieService
                     $query->id,
                     $query->poster_link,
                     $query->series_title,
-                    $query->released_year,
-                    $query->certificate,
-                    $query->runtime,
-                    $query->genre,
-                    $query->imdb_rating,
                     $query->overview,
-                    $query->meta_score,
-                    $query->director,
-                    $query->star1,
-                    $query->star2,
-                    $query->star3,
-                    $query->star4,
-                    $query->no_of_votes,
-                    $query->gross,
                 );
             })->values()->all();
             
