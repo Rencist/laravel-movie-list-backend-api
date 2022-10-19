@@ -1,0 +1,45 @@
+<?php
+
+namespace App\Core\Application\Service\DetailMovie;
+
+use Exception;
+use App\Core\Domain\Repository\MovieRepositoryInterface;
+use App\Core\Application\Service\DetailMovie\DetailMovieRequest;
+use App\Core\Application\Service\DetailMovie\DetailMovieResponse;
+
+class DetailMovieService
+{
+    private MovieRepositoryInterface $movie_repository;
+
+    public function __construct(MovieRepositoryInterface $movie_repository)
+    {
+        $this->movie_repository = $movie_repository;
+    }
+
+    /**
+     * @throws Exception
+     */
+    public function execute(DetailMovieRequest $request): DetailMovieResponse
+    {
+        $movies = $this->movie_repository->find($request->getMovieId());
+        return new DetailMovieResponse(
+            $movies->getId(),
+            $movies->getPosterLink(),
+            $movies->getSeriesTitle(),
+            $movies->getReleasedYear(),
+            $movies->getCertificate(),
+            $movies->getRuntime(),
+            $movies->getGenre(),
+            $movies->getImdbRating(),
+            $movies->getOverview(),
+            $movies->getMetaScore(),
+            $movies->getDirector(),
+            $movies->getStar1(),
+            $movies->getStar2(),
+            $movies->getStar3(),
+            $movies->getStar4(),
+            $movies->getNoOfVotes(),
+            $movies->getGross(),
+        );
+    }
+}
