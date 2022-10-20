@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Core\Domain\Models\Movie\MovieId;
 
 class MovieTableSeeder extends Seeder
 {
@@ -19,10 +19,9 @@ class MovieTableSeeder extends Seeder
         $movies = json_decode($json, true);
 
         $payload = [];
-        $id = 1;
         foreach ($movies as $movie) {
             $payload[] = [
-                'id' => $id,
+                'id' => MovieId::generate()->toString(),
                 'poster_link' => $movie['poster_link'],
                 'series_title' => $movie['series_title'],
                 'released_year' => $movie['released_year'],
@@ -40,7 +39,6 @@ class MovieTableSeeder extends Seeder
                 'no_of_votes' => $movie['no_of_votes'],
                 'gross' => $movie['gross'],
             ];
-            $id++;
         }
         DB::table('movie')->insert($payload);
     }
