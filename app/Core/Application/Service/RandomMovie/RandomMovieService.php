@@ -12,7 +12,7 @@ class RandomMovieService
     /**
      * @throws Exception
      */
-    public function execute(): SingleRandomMovieResponse
+    public function execute(): array
     {
         // dd($start_form);
         $query = DB::select(
@@ -23,7 +23,7 @@ class RandomMovieService
             "
         );
         $query_collection = collect($query);
-        $data = $query_collection
+        return ($query_collection
             ->map(function ($query) {
                 return new RandomMovieResponse(
                     $query->id,
@@ -44,11 +44,7 @@ class RandomMovieService
                     $query->no_of_votes,
                     $query->gross,
                 );
-            })->values()->all();
-
-            return new SingleRandomMovieResponse(
-                $data
-            );
+            })->values()->all());
         
     }
 }
