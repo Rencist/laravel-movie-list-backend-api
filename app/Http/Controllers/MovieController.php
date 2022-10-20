@@ -8,6 +8,8 @@ use Illuminate\Http\JsonResponse;
 use App\Core\Domain\Models\Movie\Movie;
 use App\Core\Application\Service\Movie\MovieRequest;
 use App\Core\Application\Service\Movie\MovieService;
+use App\Core\Application\Service\CreateMovie\CreateMovieRequest;
+use App\Core\Application\Service\CreateMovie\CreateMovieService;
 use App\Core\Application\Service\DetailMovie\DetailMovieRequest;
 use App\Core\Application\Service\DetailMovie\DetailMovieService;
 use App\Core\Application\Service\RandomMovie\RandomMovieService;

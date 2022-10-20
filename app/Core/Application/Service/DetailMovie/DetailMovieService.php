@@ -28,19 +28,14 @@ class DetailMovieService
             $movies->getPosterLink(),
             $movies->getSeriesTitle(),
             $movies->getReleasedYear(),
-            $movies->getCertificate(),
             $movies->getRuntime(),
             $movies->getGenre(),
             $movies->getImdbRating(),
             $movies->getOverview(),
-            $movies->getMetaScore(),
             $movies->getDirector(),
             $movies->getStar1(),
             $movies->getStar2(),
-            $movies->getStar3(),
-            $movies->getStar4(),
-            $movies->getNoOfVotes(),
-            $movies->getGross(),
+            $movies->getStar3()
         );
     }
 }

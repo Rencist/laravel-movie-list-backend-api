@@ -5,7 +5,6 @@ namespace App\Core\Application\Service\RandomMovie;
 use Exception;
 use Illuminate\Support\Facades\DB;
 use App\Core\Application\Service\RandomMovie\RandomMovieResponse;
-use App\Core\Application\Service\RandomMovie\SingleRandomMovieResponse;
 
 class RandomMovieService
 {
@@ -30,19 +29,14 @@ class RandomMovieService
                     $query->poster_link,
                     $query->series_title,
                     $query->released_year,
-                    $query->certificate,
                     $query->runtime,
                     $query->genre,
                     $query->imdb_rating,
                     $query->overview,
-                    $query->meta_score,
                     $query->director,
                     $query->star1,
                     $query->star2,
-                    $query->star3,
-                    $query->star4,
-                    $query->no_of_votes,
-                    $query->gross,
+                    $query->star3
                 );
             })->values()->all());
         
