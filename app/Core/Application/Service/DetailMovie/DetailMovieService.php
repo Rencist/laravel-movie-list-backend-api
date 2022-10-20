@@ -6,6 +6,7 @@ use Exception;
 use App\Core\Domain\Repository\MovieRepositoryInterface;
 use App\Core\Application\Service\DetailMovie\DetailMovieRequest;
 use App\Core\Application\Service\DetailMovie\DetailMovieResponse;
+use App\Core\Domain\Models\Movie\MovieId;
 
 class DetailMovieService
 {
@@ -21,9 +22,9 @@ class DetailMovieService
      */
     public function execute(DetailMovieRequest $request): DetailMovieResponse
     {
-        $movies = $this->movie_repository->find($request->getMovieId());
+        $movies = $this->movie_repository->find(new MovieId($request->getMovieId()));
         return new DetailMovieResponse(
-            $movies->getId(),
+            $movies->getId()->toString(),
             $movies->getPosterLink(),
             $movies->getSeriesTitle(),
             $movies->getReleasedYear(),

@@ -2,10 +2,12 @@
 
 namespace App\Core\Domain\Models\Movie;
 
+use App\Core\Domain\Models\Movie\MovieId;
+
 
 class Movie
 {
-    private string $id;
+    private MovieId $id;
     private string $poster_link;
     private string $series_title;
     private ?string $released_year;
@@ -23,7 +25,7 @@ class Movie
     private ?string $no_of_votes;
     private ?string $gross;
 
-    public function __construct(string $id, string $poster_link, string $series_title, 
+    public function __construct(MovieId $id, string $poster_link, string $series_title, 
     ?string $released_year, ?string $certificate, ?string $runtime, ?string $genre, ?string $imdb_rating, 
     string $overview, ?string $meta_score, ?string $director, ?string $star1, ?string $star2, 
     ?string $star3, ?string $star4, ?string $no_of_votes, ?string $gross)
@@ -47,7 +49,7 @@ class Movie
         $this->gross = $gross;
     }
 
-    public static function create(string $id, string $poster_link, string $series_title, 
+    public static function create(MovieId $id, string $poster_link, string $series_title, 
     ?string $released_year, ?string $certificate, ?string $runtime, ?string $genre, ?string $imdb_rating, 
     string $overview, ?string $meta_score, ?string $director, ?string $star1, ?string $star2, 
     ?string $star3, ?string $star4, ?string $no_of_votes, ?string $gross): self
@@ -73,7 +75,7 @@ class Movie
         );
     }
 
-    public function getId(): string
+    public function getId(): MovieId
     {
         return $this->id;
     }
