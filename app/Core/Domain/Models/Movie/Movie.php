@@ -25,10 +25,7 @@ class Movie
     private ?string $no_of_votes;
     private ?string $gross;
 
-    public function __construct(MovieId $id, string $poster_link, string $series_title, 
-    ?string $released_year, ?string $certificate, ?string $runtime, ?string $genre, ?string $imdb_rating, 
-    string $overview, ?string $meta_score, ?string $director, ?string $star1, ?string $star2, 
-    ?string $star3, ?string $star4, ?string $no_of_votes, ?string $gross)
+    public function __construct(MovieId $id, string $poster_link, string $series_title, ?string $released_year, ?string $certificate, ?string $runtime, ?string $genre, ?string $imdb_rating, string $overview, ?string $meta_score, ?string $director, ?string $star1, ?string $star2, ?string $star3, ?string $star4, ?string $no_of_votes, ?string $gross)
     {
         $this->id = $id;
         $this->poster_link = $poster_link;
@@ -49,10 +46,7 @@ class Movie
         $this->gross = $gross;
     }
 
-    public static function create(MovieId $id, string $poster_link, string $series_title, 
-    ?string $released_year, ?string $certificate, ?string $runtime, ?string $genre, ?string $imdb_rating, 
-    string $overview, ?string $meta_score, ?string $director, ?string $star1, ?string $star2, 
-    ?string $star3, ?string $star4, ?string $no_of_votes, ?string $gross): self
+    public static function create(MovieId $id, string $poster_link, string $series_title, ?string $released_year, ?string $certificate, ?string $runtime, ?string $genre, ?string $imdb_rating, string $overview, ?string $meta_score, ?string $director, ?string $star1, ?string $star2, ?string $star3, ?string $star4, ?string $no_of_votes, ?string $gross): self
     {
         return new self(
             $id,

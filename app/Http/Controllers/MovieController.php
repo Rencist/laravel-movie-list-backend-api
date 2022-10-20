@@ -46,4 +46,27 @@ class MovieController extends Controller
         );
     }
 
+    /**
+     * @throws Exception
+     */
+    public function createMovies(Request $request, CreateMovieService $service): JsonResponse
+    {
+        $input = new CreateMovieRequest(
+            $request->input('poster_link'),
+            $request->input('series_title'),
+            $request->input('released_year'),
+            $request->input('runtime'),
+            $request->input('genre'),
+            $request->input('imdb_rating'),
+            $request->input('overview'),
+            $request->input('director'),
+            $request->input('star1'),
+            $request->input('star2'),
+            $request->input('star3'),
+        );
+        return $this->successWithData(
+            $service->execute($input)
+        );
+    }
+
 }
