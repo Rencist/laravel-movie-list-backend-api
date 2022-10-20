@@ -21,7 +21,7 @@ class CreateMovieService
     /**
      * @throws Exception
      */
-    public function execute(CreateMovieRequest $request)
+    public function execute(CreateMovieRequest $request): CreateMovieResponse
     {
         $movie = Movie::create(
             $request->getPosterLink(),
@@ -37,5 +37,18 @@ class CreateMovieService
             $request->getStar3(),
         );
         $this->movie_repository->persist($movie);
+        return new CreateMovieResponse(
+            $movie->getPosterLink(),
+            $movie->getSeriesTitle(),
+            $movie->getReleasedYear(),
+            $movie->getRuntime(),
+            $movie->getGenre(),
+            $movie->getImdbRating(),
+            $movie->getOverview(),
+            $movie->getDirector(),
+            $movie->getStar1(),
+            $movie->getStar2(),
+            $movie->getStar3(),
+        );
     }
 }

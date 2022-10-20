@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
-use App\Core\Domain\Models\Movie\Movie;
 use App\Core\Application\Service\Movie\MovieRequest;
 use App\Core\Application\Service\Movie\MovieService;
 use App\Core\Application\Service\CreateMovie\CreateMovieRequest;
@@ -51,7 +50,7 @@ class MovieController extends Controller
     /**
      * @throws Exception
      */
-    public function createMovies(Request $request, CreateMovieService $service): JsonResponse
+    public function createMovie(Request $request, CreateMovieService $service): JsonResponse
     {
         $input = new CreateMovieRequest(
             $request->input('poster_link'),
@@ -66,9 +65,8 @@ class MovieController extends Controller
             $request->input('star2'),
             $request->input('star3'),
         );
-        return $this->successWithData(
-            $service->execute($input)
-        );
+        $response = $service->execute($input);
+        return $this->successWithData($response);
     }
 
 }
