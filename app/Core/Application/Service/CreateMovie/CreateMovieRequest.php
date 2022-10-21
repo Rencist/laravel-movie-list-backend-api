@@ -1,13 +1,9 @@
 <?php
 
-namespace App\Core\Domain\Models\Movie;
+namespace App\Core\Application\Service\CreateMovie;
 
-use App\Core\Domain\Models\Movie\MovieId;
-
-
-class Movie
+class CreateMovieRequest
 {
-    private MovieId $id;
     private string $poster_link;
     private string $series_title;
     private ?string $released_year;
@@ -20,9 +16,11 @@ class Movie
     private ?string $star2;
     private ?string $star3;
 
-    public function __construct(MovieId $id, string $poster_link, string $series_title, ?string $released_year, ?string $runtime, ?string $genre, ?string $imdb_rating, string $overview, ?string $director, ?string $star1, ?string $star2, ?string $star3)
+    /**
+     * @param string $movie_id
+     */
+    public function __construct(string $poster_link, string $series_title, string $released_year, string $runtime, string $genre, string $imdb_rating, string $overview, string $director, string $star1, string $star2, string $star3)
     {
-        $this->id = $id;
         $this->poster_link = $poster_link;
         $this->series_title = $series_title;
         $this->released_year = $released_year;
@@ -34,29 +32,6 @@ class Movie
         $this->star1 = $star1;
         $this->star2 = $star2;
         $this->star3 = $star3;
-    }
-
-    public static function create(string $poster_link, string $series_title, ?string $released_year, ?string $runtime, ?string $genre, ?string $imdb_rating, string $overview, ?string $director, ?string $star1, ?string $star2, ?string $star3): self
-    {
-        return new self(
-            MovieId::generate(),
-            $poster_link,
-            $series_title,
-            $released_year,
-            $runtime,
-            $genre,
-            $imdb_rating,
-            $overview,
-            $director,
-            $star1,
-            $star2,
-            $star3
-        );
-    }
-
-    public function getId(): MovieId
-    {
-        return $this->id;
     }
 
     public function getPosterLink(): string
@@ -113,6 +88,5 @@ class Movie
     {
         return $this->star3;
     }
-
 
 }

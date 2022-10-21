@@ -13,6 +13,7 @@ Route::post('/login_user', [UserController::class, 'loginUser']);
 Route::get('/get_movies', [MovieController::class, 'movies']);
 Route::get('/detail_movie', [MovieController::class, 'detailMovie']);
 Route::get('/random_movie', [MovieController::class, 'randomMovie']);
+Route::post('/create_movie', [MovieController::class, 'createMovie']);
 
 Route::middleware(['iam'])->group(
     function () {

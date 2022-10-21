@@ -25,19 +25,14 @@ class MovieTableSeeder extends Seeder
                 'poster_link' => $movie['poster_link'],
                 'series_title' => $movie['series_title'],
                 'released_year' => $movie['released_year'],
-                'certificate' => $movie['certificate'],
                 'runtime' => $movie['runtime'],
                 'genre' => $movie['genre'],
                 'imdb_rating' => $movie['imdb_rating'],
                 'overview' => $movie['overview'],
-                'meta_score' => $movie['meta_score'],
                 'director' => $movie['director'],
                 'star1' => $movie['star1'],
                 'star2' => $movie['star2'],
-                'star3' => $movie['star3'],
-                'star4' => $movie['star4'],
-                'no_of_votes' => $movie['no_of_votes'],
-                'gross' => $movie['gross'],
+                'star3' => $movie['star3']
             ];
         }
         DB::table('movie')->insert($payload);

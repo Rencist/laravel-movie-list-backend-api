@@ -17,19 +17,14 @@ class SqlMovieRepository implements MovieRepositoryInterface
             'poster_link' => $movie->getPosterLink(),
             'series_title' => $movie->getSeriesTitle(),
             'released_year' => $movie->getReleasedYear(),
-            'certificate' => $movie->getCertificate(),
             'runtime' => $movie->getRuntime(),
             'genre' => $movie->getGenre(),
             'imdb_rating' => $movie->getImdbRating(),
             'overview' => $movie->getOverview(),
-            'meta_score' => $movie->getMetaScore(),
             'director' => $movie->getDirector(),
             'star1' => $movie->getStar1(),
             'star2' => $movie->getStar2(),
-            'star3' => $movie->getStar3(),
-            'star4' => $movie->getStar4(),
-            'no_of_votes' => $movie->getNoOfVotes(),
-            'gross' => $movie->getGross(),
+            'star3' => $movie->getStar3()
         ], 'id');
     }
 
@@ -55,19 +50,14 @@ class SqlMovieRepository implements MovieRepositoryInterface
             $row->poster_link,
             $row->series_title,
             $row->released_year,
-            $row->certificate,
             $row->runtime,
             $row->genre,
             $row->imdb_rating,
             $row->overview,
-            $row->meta_score,
             $row->director,
             $row->star1,
             $row->star2,
-            $row->star3,
-            $row->star4,
-            $row->no_of_votes,
-            $row->gross,
+            $row->star3
         );
     }
 }

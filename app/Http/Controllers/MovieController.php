@@ -5,9 +5,10 @@ namespace App\Http\Controllers;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
-use App\Core\Domain\Models\Movie\Movie;
 use App\Core\Application\Service\Movie\MovieRequest;
 use App\Core\Application\Service\Movie\MovieService;
+use App\Core\Application\Service\CreateMovie\CreateMovieRequest;
+use App\Core\Application\Service\CreateMovie\CreateMovieService;
 use App\Core\Application\Service\DetailMovie\DetailMovieRequest;
 use App\Core\Application\Service\DetailMovie\DetailMovieService;
 use App\Core\Application\Service\RandomMovie\RandomMovieService;
@@ -44,6 +45,28 @@ class MovieController extends Controller
         return $this->successWithData(
             $service->execute()
         );
+    }
+
+    /**
+     * @throws Exception
+     */
+    public function createMovie(Request $request, CreateMovieService $service): JsonResponse
+    {
+        $input = new CreateMovieRequest(
+            $request->input('poster_link'),
+            $request->input('series_title'),
+            $request->input('released_year'),
+            $request->input('runtime'),
+            $request->input('genre'),
+            $request->input('imdb_rating'),
+            $request->input('overview'),
+            $request->input('director'),
+            $request->input('star1'),
+            $request->input('star2'),
+            $request->input('star3'),
+        );
+        $response = $service->execute($input);
+        return $this->successWithData($response);
     }
 
 }

@@ -18,19 +18,14 @@ return new class extends Migration
             $table->string('poster_link');
             $table->string('series_title');
             $table->string('released_year');
-            $table->string('certificate');
             $table->string('runtime');
             $table->string('genre');
             $table->string('imdb_rating');
             $table->text('overview');
-            $table->string('meta_score');
             $table->string('director');
             $table->string('star1');
             $table->string('star2');
             $table->string('star3');
-            $table->string('star4');
-            $table->string('no_of_votes');
-            $table->string('gross');
             $table->timestamps();
         });
     }
