@@ -21,18 +21,19 @@ POST /api/create_user
   "success"  : bool
 }
 ```
+
 <br >
 
 ```http
-POST /api/login_user
+GET /api/get_movies
 ```
 
--   Request
+-   Request Params
 
 ```javascript
 {
-  "email"    : string,
-  "password" : string,
+  "page"     : int,
+  "per_page" : int,
 }
 ```
 
@@ -40,10 +41,46 @@ POST /api/login_user
 
 ```javascript
 {
-  "success" : bool,
     "data"  : {
-        "token"     : string,
-        "user_type" : string
+        "id"           : uuid,
+        "poster_link"  : string,
+        "series_title" : string,
+        "overview"     : string
+    }
+}
+```
+
+<br >
+
+```http
+GET /api/detail_movie
+```
+
+-   Request Params
+
+```javascript
+{
+  "id"     : uuid,
+}
+```
+
+-   Response
+
+```javascript
+{
+    "data"  : {
+        "id"            : uuid,
+        "poster_link"   : string,
+        "series_title"  : string,
+        "released_year" : string,
+        "runtime"       : string,
+        "genre"         : string,
+        "imdb_rating"   : string,
+        "overview"      : string,
+        "director"      : string,
+        "star1"         : string,
+        "star2"         : string,
+        "star3"         : string
     }
 }
 ```
