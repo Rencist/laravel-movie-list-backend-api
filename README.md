@@ -49,3 +49,38 @@ GET /api/get_movies
     }
 }
 ```
+
+<br >
+
+```http
+GET /api/detail_movie
+```
+
+-   Request Params
+
+```javascript
+{
+  "id"     : uuid,
+}
+```
+
+-   Response
+
+```javascript
+{
+    "data"  : {
+        "id"            : uuid,
+        "poster_link"   : string,
+        "series_title"  : string,
+        "released_year" : string,
+        "runtime"       : string,
+        "genre"         : string,
+        "imdb_rating"   : string,
+        "overview"      : string,
+        "director"      : string,
+        "star1"         : string,
+        "star2"         : string,
+        "star3"         : string
+    }
+}
+```
